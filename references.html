@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>References</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <div class="card">
+      <h2>References and Other Contacts</h2>
+
+      <div class="ref">
+        <div class="icon">🎓</div>
+        <div>
+          <p class="name">Dr. Melvin Kong Cabatuan</p>
+          <div class="info">Professor</div>
+          <div class="info"><span class="accent">Email:</span> melvin.cabatuan@dlsu.edu.ph</div>
+          <div class="info"><span class="accent">Contact Number:</span> +63 12345678</div>
+        </div>
+      </div>
+
+      <div class="ref">
+        <div class="icon">👩‍👦</div>
+        <div>
+          <p class="name">Maria Lizzette O. Reyes</p>
+          <div class="info">Mother</div>
+          <div class="info"><span class="accent">Email:</span> emailnimom@gmail.com</div>
+          <div class="info"><span class="accent">Contact Number:</span> +63 12345678</div>
+        </div>
+      </div>
+
+      <div class="form-wrap">
+        <div class="form-card">
+          <h3 class="form-title">Request Formal Reference</h3>
+          <p class="form-sub">
+            If you require a signed recommendation letter for academic or professional purposes,
+            please fill out the form below.
+          </p>
+
+          <form id="refForm">
+            <div class="row">
+              <label for="reqName">Requestor Name</label>
+              <input id="reqName" name="reqName" type="text" placeholder="e.g., Juan Dela Cruz" required>
+            </div>
+
+            <div class="row">
+              <label for="reqEmail">Email</label>
+              <input id="reqEmail" name="reqEmail" type="email" placeholder="e.g., juan@email.com" required>
+            </div>
+
+            <div class="row">
+              <label for="reqType">Request Type</label>
+              <select id="reqType" name="reqType" required>
+                <option value="Employment Reference">Employment Reference</option>
+                <option value="Academic Reference">Academic Reference</option>
+                <option value="Scholarship Reference">Scholarship Reference</option>
+                <option value="Character Reference">Character Reference</option>
+              </select>
+            </div>
+
+            <div class="row">
+              <label for="notes">Additional Notes</label>
+              <textarea id="notes" name="notes" placeholder="Write details like deadline, position applied for, and what you want emphasized..." required></textarea>
+            </div>
+
+            <div class="actions">
+              <button type="reset">Clear</button>
+              <button class="primary" type="submit">Submit Request</button>
+            </div>
+
+            <div id="statusBox" class="status"></div>
+          </form>
+        </div>
+
+        <div class="preview">
+          <h3>Request Preview</h3>
+          <p class="muted mt-2">This updates as you type.</p>
+
+          <div class="kv">
+            <div class="k">Name</div><div class="v" id="pvName">—</div>
+            <div class="k">Email</div><div class="v" id="pvEmail">—</div>
+            <div class="k">Type</div><div class="v" id="pvType">—</div>
+            <div class="k">Notes</div><div class="v" id="pvNotes">—</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById("refForm");
+    const statusBox = document.getElementById("statusBox");
+
+    const reqName = document.getElementById("reqName");
+    const reqEmail = document.getElementById("reqEmail");
+    const reqType = document.getElementById("reqType");
+    const notes = document.getElementById("notes");
+
+    const pvName = document.getElementById("pvName");
+    const pvEmail = document.getElementById("pvEmail");
+    const pvType = document.getElementById("pvType");
+    const pvNotes = document.getElementById("pvNotes");
+
+    function updatePreview(){
+      pvName.textContent = reqName.value.trim() || "—";
+      pvEmail.textContent = reqEmail.value.trim() || "—";
+      pvType.textContent = reqType.value || "—";
+      pvNotes.textContent = notes.value.trim() || "—";
+    }
+
+    [reqName, reqEmail, reqType, notes].forEach(el => {
+      el.addEventListener("input", updatePreview);
+      el.addEventListener("change", updatePreview);
+    });
+
+    form.addEventListener("reset", () => {
+      setTimeout(() => {
+        updatePreview();
+        statusBox.className = "status";
+        statusBox.style.display = "none";
+        statusBox.textContent = "";
+      }, 0);
+    });
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      if (!reqName.value.trim() || !reqEmail.value.trim() || !notes.value.trim()){
+        statusBox.className = "status err";
+        statusBox.style.display = "block";
+        statusBox.textContent = "Please complete all required fields before submitting.";
+        return;
+      }
+
+      statusBox.className = "status ok";
+      statusBox.style.display = "block";
+      statusBox.textContent = "Request submitted!";
+    });
+
+    updatePreview();
+  </script>
+</body>
+</html>
