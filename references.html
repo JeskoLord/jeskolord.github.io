@@ -89,57 +89,6 @@
     </div>
   </div>
 
-  <script>
-    const form = document.getElementById("refForm");
-    const statusBox = document.getElementById("statusBox");
-
-    const reqName = document.getElementById("reqName");
-    const reqEmail = document.getElementById("reqEmail");
-    const reqType = document.getElementById("reqType");
-    const notes = document.getElementById("notes");
-
-    const pvName = document.getElementById("pvName");
-    const pvEmail = document.getElementById("pvEmail");
-    const pvType = document.getElementById("pvType");
-    const pvNotes = document.getElementById("pvNotes");
-
-    function updatePreview(){
-      pvName.textContent = reqName.value.trim() || "—";
-      pvEmail.textContent = reqEmail.value.trim() || "—";
-      pvType.textContent = reqType.value || "—";
-      pvNotes.textContent = notes.value.trim() || "—";
-    }
-
-    [reqName, reqEmail, reqType, notes].forEach(el => {
-      el.addEventListener("input", updatePreview);
-      el.addEventListener("change", updatePreview);
-    });
-
-    form.addEventListener("reset", () => {
-      setTimeout(() => {
-        updatePreview();
-        statusBox.className = "status";
-        statusBox.style.display = "none";
-        statusBox.textContent = "";
-      }, 0);
-    });
-
-    form.addEventListener("submit", (e) => {
-      e.preventDefault();
-
-      if (!reqName.value.trim() || !reqEmail.value.trim() || !notes.value.trim()){
-        statusBox.className = "status err";
-        statusBox.style.display = "block";
-        statusBox.textContent = "Please complete all required fields before submitting.";
-        return;
-      }
-
-      statusBox.className = "status ok";
-      statusBox.style.display = "block";
-      statusBox.textContent = "Request submitted!";
-    });
-
-    updatePreview();
-  </script>
+  <script src="app.js"></script>
 </body>
 </html>

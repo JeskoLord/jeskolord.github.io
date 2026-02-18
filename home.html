@@ -10,90 +10,63 @@
 
   <div class="container">
 
-    <div class="card hero">
+    <div class="card hero" id="heroCard">
       <img src="profile.jpg" class="photo" alt="Profile photo">
       <div>
         <h2>Welcome to My Portfolio</h2>
         <p class="mt6">
-          I’m a Computer Engineering student from De La Salle University Manila. I enjoy building practical projects
-          that combine logic, design, and real-world problem solving.
-        </p>
-        <div class="contact-row">
-          <span class="badge">Open to internships and project collaborations</span>
-          <span class="badge">Hardware + Software</span>
-          <span class="badge">Documentation-focused</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="grid">
-      <div class="card">
-        <h3 class="h2-sm">Core Skills</h3>
-        <ul>
-          <li>HTML/CSS (box model, flexbox, layout)</li>
-          <li>Basic JavaScript (DOM, events)</li>
-          <li>Digital logic + microprocessor fundamentals</li>
-          <li>Documentation and clean UI layout</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h3 class="h2-sm">Tools I Use</h3>
-        <div class="contact-row">
-          <span class="pill">VS Code</span>
-          <span class="pill">Proteus</span>
-          <span class="pill">Multisim</span>
-          <span class="pill">MATLAB</span>
-          <span class="pill">Git (basic)</span>
-          <span class="pill">Canva</span>
-        </div>
-        <p class="mt10 muted">
-          I focus on building simple, working prototypes first, then improving layout and documentation.
+          I’m a Computer Engineering student from De La Salle University Manila.
         </p>
       </div>
     </div>
 
+    <!-- EMAIL FORM -->
     <div class="card">
-      <h3 class="h2-sm">Featured Work (Preview)</h3>
-      <div class="projects">
-        <div class="card proj">
-          <h3>Flexbox Layout Practice</h3>
-          <p>
-            A clean layout demo that uses flex containers for navigation, spacing, and content alignment.
-          </p>
-          <div class="contact-row">
-            <span class="tag">Flexbox</span>
-            <span class="tag">justify-content</span>
-            <span class="tag">responsive</span>
-          </div>
-        </div>
+      <h3 class="h2-sm">Send Me an Email</h3>
+      <p class="mt6 muted">
+        Messages containing spam keywords like "free money" will be blocked.
+      </p>
 
-        <div class="card proj">
-          <h3>Box Model Demonstration</h3>
-          <p>
-            A structured example showing content, padding, border, margin, and box-sizing differences.
-          </p>
-          <div class="contact-row">
-            <span class="tag">box model</span>
-            <span class="tag">border-box</span>
-            <span class="tag">content-box</span>
-          </div>
+      <div class="form-wrap mt10" style="grid-template-columns:1fr;">
+        <div class="form-card">
+
+          <form id="contactForm">
+
+            <div class="row">
+              <label for="fromName">Your Name</label>
+              <input id="fromName" type="text" required>
+            </div>
+
+            <div class="row">
+              <label for="fromEmail">Your Email</label>
+              <input id="fromEmail" type="email" required>
+            </div>
+
+            <div class="row">
+              <label for="subject">Subject</label>
+              <input id="subject" type="text" required>
+            </div>
+
+            <div class="row">
+              <label for="message">Message</label>
+              <textarea id="message" required></textarea>
+            </div>
+
+            <div class="actions">
+              <button type="reset">Clear</button>
+              <button class="primary" type="submit">Send</button>
+            </div>
+
+            <div id="contactStatus" class="status"></div>
+
+          </form>
+
         </div>
       </div>
-    </div>
-
-    <div class="card">
-      <h3 class="h2-sm">Quick Notes</h3>
-      <p class="mt6">
-        This portfolio is made for lab requirements and showcases layout concepts like spacing, flexbox alignment,
-        and consistent UI styling using external CSS.
-      </p>
-      <p class="mt10">
-        You can explore more using the navigation menu on the left.
-      </p>
     </div>
 
   </div>
 
+  <script src="app.js"></script>
 </body>
 </html>

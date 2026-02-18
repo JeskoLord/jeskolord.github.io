@@ -2,58 +2,94 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Works</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-<div class="container">
+
+  <div class="container">
+
     <div class="card">
       <h2>Works / Projects</h2>
-      <p>Replace these entries with your actual projects. Keep it short: what you built, what tools you used, and the result.</p>
+      <p class="mt6 muted">
+        Here are some of my lab outputs and portfolio projects.
+      </p>
+
+      <div class="projects mt10">
+        <div class="card proj">
+          <h3>Flexbox Layout Practice</h3>
+          <p class="mt6">
+            A layout demo using flex containers for navigation, spacing, and alignment.
+          </p>
+          <div class="contact-row">
+            <span class="tag">Flexbox</span>
+            <span class="tag">Layout</span>
+          </div>
+        </div>
+
+        <div class="card proj">
+          <h3>Box Model Demonstration</h3>
+          <p class="mt6">
+            Demonstrates content, padding, border, margin, and box sizing.
+          </p>
+          <div class="contact-row">
+            <span class="tag">Box Model</span>
+            <span class="tag">CSS</span>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <div class="projects">
-      <div class="card proj">
-        <h3>Portfolio Website</h3>
-        <p>Built a multi-page portfolio site with a clean navigation layout and consistent styling across sections.</p>
-        <div class="meta">
-          <span class="tag">HTML</span>
-          <span class="tag">CSS</span>
-          <span class="tag">UI Design</span>
-        </div>
-      </div>
+    <div class="card">
+      <h3 class="h2-sm">Interactive</h3>
+      <p class="mt6">
+        Click the button to open the ball game. It will cover the entire window.
+        You can <b>drag the ball</b> with your mouse, and you can also <b>click the ball</b> to pause/resume.
+      </p>
 
-      <div class="card proj">
-        <h3>Sample Embedded Project</h3>
-        <p>Designed a sensor-based concept, documented tests, and improved the flow based on results.</p>
-        <div class="meta">
-          <span class="tag">Microcontroller</span>
-          <span class="tag">Sensors</span>
-          <span class="tag">Documentation</span>
-        </div>
+      <div class="mt10">
+        <button class="btn primary-btn" id="openBallGame" type="button">Ball Game</button>
       </div>
+    </div>
 
-      <div class="card proj">
-        <h3>Mini System / App Prototype</h3>
-        <p>Created a small prototype focused on usability and clean structure, then iterated based on feedback.</p>
-        <div class="meta">
-          <span class="tag">Prototype</span>
-          <span class="tag">Problem Solving</span>
-          <span class="tag">Iteration</span>
+  </div>
+
+  <!-- FULLSCREEN MODAL -->
+  <div class="modal" id="ballModal" aria-hidden="true">
+    <div class="modal-topbar">
+      <div class="modal-title">Ball Game</div>
+      <button class="modal-close" id="closeBallGame" type="button" aria-label="Close">✕</button>
+    </div>
+
+    <div class="modal-body">
+      <div class="game-panel">
+        <div class="game-left">
+          <p class="muted">
+            Press <b>Start</b> to bounce the ball. You can also <b>drag</b> the ball anytime.
+          </p>
+
+          <div class="game-actions mt10">
+            <button class="btn" id="startBall" type="button">Start</button>
+            <button class="btn" id="pauseBall" type="button">Pause</button>
+            <button class="btn" id="resetBall" type="button">Reset</button>
+          </div>
+
+          <div class="mt10 muted small-note">
+            Lab 6: animation + DOM events + console logging. <br>
+            (Optional) Open DevTools Console to see logs.
+          </div>
         </div>
-      </div>
 
-      <div class="card proj">
-        <h3>Academic Build / Lab Output</h3>
-        <p>Completed lab tasks with proper documentation, results, and short reflection on improvements.</p>
-        <div class="meta">
-          <span class="tag">Engineering Lab</span>
-          <span class="tag">Testing</span>
-          <span class="tag">Reporting</span>
+        <div class="game-right">
+          <div class="game-area" id="ballWrap" aria-label="Ball game area">
+            <div class="ball" id="ball" title="Drag me / Click to pause-resume"></div>
+          </div>
         </div>
       </div>
     </div>
   </div>
+
+  <script src="app.js"></script>
 </body>
 </html>
